@@ -1,0 +1,48 @@
+<div [ngStyle]="{
+    'display': 'flex',
+    'justify-content': 'center'
+}">
+    <button [ngStyle]="{
+        'margin-top': '50px',
+        'margin-bottom': '50px'
+    }" (click)="openAddNewStudentModal()" mat-raised-button color="primary">Add New Student</button>
+</div>
+
+<section class="d-flex flex-wrap col-md-10 m-auto">
+    <div *ngFor="let student of studentsList" class="row card-group card-hover-over">
+        <div class="col-md-12">
+            <div class="card">
+                <img class="card-img" [src]="student.image" alt="Card image">
+                <div class="card-img-overlay">
+                    <div class="card-body">
+                        <div class="btn-group">
+                            <div class="example-button-container">
+                                <button (click)="openUpdateModal(student._id)" class="update" [ngStyle]="{
+                                    'margin-right': '10px'
+                                }" mat-mini-fab >
+                                  <mat-icon>update</mat-icon>
+                                </button>
+                              </div>
+                              <div class="example-button-container">
+                                <button (click)="deleteStudent(student._id)" class="delete" mat-mini-fab>
+                                  <mat-icon>delete</mat-icon>
+                                </button>
+                              </div>
+                        </div>
+                        <h4 class="card-title">Name</h4>
+                        <p class="card-text">{{ student.name }}</p>
+                        <mat-divider></mat-divider>
+                        <h4 class="card-title">Surname</h4>
+                        <p class="card-text">{{ student.surname }}</p>
+                        <mat-divider></mat-divider>
+                        <h4 class="card-title">Email</h4>
+                        <p class="card-text">{{ student.email }}</p>
+                        <mat-divider></mat-divider>
+                        <h4 class="card-title">Gender</h4>
+                        <p class="card-text">{{ student.gender }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

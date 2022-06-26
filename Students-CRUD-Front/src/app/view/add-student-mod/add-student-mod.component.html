@@ -1,0 +1,28 @@
+<form [formGroup]="studentForm" (ngSubmit)="onFormSubmit()" mat-dialog-content class="example-form">
+  <div class="example-full-width mb-2" appearance="fill">
+    <label class="form-label">Upload Image</label>
+    <input formControlName="image" (change)="onImageUpload($event)" class="input form-control" type="file">
+  </div>
+  <img *ngIf="uploadedImg" [src]="uploadedImg">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Name</mat-label>
+    <input formControlName="name" matInput placeholder="Ex. John">
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Surname</mat-label>
+    <input formControlName="surname" matInput placeholder="Ex. testSurname">
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Email</mat-label>
+    <input formControlName="email" matInput placeholder="Ex. test@gmail.com"> 
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Gender</mat-label>
+    <mat-select formControlName="gender">
+      <mat-option value="male">Male</mat-option>
+      <mat-option value="female">Female</mat-option>
+      <mat-option value="other">Other</mat-option>
+    </mat-select>
+  </mat-form-field> 
+  <button type="submit" mat-raised-button color="primary">Save</button>
+</form>
