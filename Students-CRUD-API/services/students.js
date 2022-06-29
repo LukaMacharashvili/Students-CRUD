@@ -46,7 +46,15 @@ async function deleteStudentS(studentId) {
 
 async function updateStudentS(studentId, studentData) {
     try {
-        const student = await Student.findOneAndUpdate({ _id: studentId }, studentData);
+        const student = await Student.findById(studentId);
+
+        student.name = studentData.name || student.name;
+        student.surname = studentData.surname || student.surname;
+        student.email = studentData.email || student.email;
+        student.image = studentData.image || student.image;
+        student.gender = studentData.gender || student.gender;
+
+        await student.save();
         return student;
     } catch (error) {
         throw error;
