@@ -46,7 +46,7 @@ async function deleteStudentS(studentId) {
 
 async function updateStudentS(studentId, studentData) {
     try {
-        const student = await Student.findOneAndUpdate({studentId}, studentData);
+        const student = await Student.findOneAndUpdate({ _id: studentId }, studentData);
         return student;
     } catch (error) {
         throw error;
